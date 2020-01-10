@@ -1,0 +1,307 @@
+@media (min-width: 1300px) {
+  #register_btn {
+    left: 57.7%;
+  }
+}
+@media (min-width: 1024px) {
+  .fb_connect {
+    width: 142px !important;
+  }
+}
+@media (max-width: 1600px) {
+  #register_btn {
+    top: 2% !important;
+    left: 57.7%;
+    z-index: 9;
+    font-size: 1.4rem;
+  }
+  #home_btn {
+    top: 2% !important;
+    left: 35.5%;
+    z-index: 9999;
+    font-size: 1.4rem;
+  }
+  .form_dk {
+    font-size: 1.7rem;
+  }
+  #giftbox {
+    left: 0px;
+    width: 2.5rem;
+  }
+  .step_gift > .val_max {
+    left: -8px;
+    font-size: 1.1rem;
+    top: -26px;
+  }
+  .fb_connect {
+    top: 140px;
+  }
+  #container_progress {
+    top: 82.5%;
+  }
+  .progress {
+    width: 60% !important;
+  }
+}
+@media (max-width: 1273px) {
+  #logo {
+    top: 35px;
+  }
+  .form_dk {
+    font-size: 1.3rem;
+    padding-top: 0.6rem;
+  }
+  .form_input > input {
+    height: 2rem;
+  }
+  .form_input > button {
+    height: 2rem;
+    font-size: 1.1rem;
+  }
+  .form_footer {
+    font-size: 0.7rem;
+  }
+  #giftbox {
+    left: 7px;
+    width: 2rem;
+    top: 50px;
+  }
+  .step_gift > .val_max {
+    left: 1px;
+    font-size: 1rem;
+    top: -17px;
+  }
+  .step_dot {
+    position: absolute;
+    width: 1.7rem;
+    left: 10px;
+    top: 5px;
+  }
+  #btn_down {
+    top: 33px;
+    left: 16px;
+    width: 0.9rem;
+  }
+  .fb_connect {
+    top: 100px !important;
+    width: 124px !important;
+  }
+  .fb_connect > p {
+    font-size: 1.1rem !important;
+  }
+  .share-button > div {
+    margin-top: 1rem !important;
+  }
+  .fb_connect {
+    height: 320px !important;
+  }
+}
+@media (max-width: 867px) {
+  #Logo_ipad {
+    height: 14.7rem !important;
+  }
+  .frame_form_ipad {
+    margin: 0.5rem 0 2rem 0 !important;
+  }
+}
+@media (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+  #logo {
+    top: 1.7rem;
+  }
+  .form_dk {
+    font-size: 1.2rem;
+    padding-top: 0.6rem;
+  }
+  .form_input > input {
+    height: 1.9rem;
+    font-size: 0.7rem;
+  }
+  .form_input > button {
+    height: 1.9rem;
+    font-size: 1.1rem;
+  }
+  .form_footer {
+    font-size: 0.8rem;
+  }
+  #container_progress {
+    top: 84%;
+  }
+  .ant-progress-bg {
+    height: 10px !important;
+  }
+  #giftbox {
+    left: 8px;
+    width: 1.7rem;
+    top: 35px;
+  }
+  .step_gift > .val_max {
+    left: 6px;
+    font-size: 0.8rem;
+    top: -9px;
+  }
+  .step_dot {
+    width: 1.5rem;
+    left: 10px;
+    top: 7px;
+  }
+  #btn_down {
+    top: 28px;
+    left: 16px;
+    width: 0.5rem;
+  }
+  .fb_connect > p {
+    font-size: 0.9rem;
+  }
+  .fb_connect > span > img {
+    width: 1.5rem;
+  }
+  .fb_connect > span {
+    font-size: 0.5rem;
+  }
+  .share-button {
+    font-size: 0.8rem;
+  }
+  .share-button > div {
+    margin: 0.5rem 0.1rem;
+    padding: 0;
+  }
+  .fb_connect {
+    height: 270px !important;
+    font-size: 1rem !important;
+    top: 100px !important;
+    width: 94px !important;
+    padding: 0.5rem 0.4rem 0.5rem 0.7rem !important;
+  }
+}
+@media (width: 768px) {
+  .logo_mobile {
+    width: 50% !important;
+    margin: 7rem 0 2rem 0px !important;
+  }
+  .video {
+    height: 405px !important;
+  }
+  .form_mobile {
+    font-size: 2.3rem;
+    padding: 2rem !important;
+  }
+  .form_mobile > h3 {
+    font-size: 3rem !important;
+  }
+  .status_mobile{
+    margin: 1rem !important;
+  }
+  .form_mobile > input {
+    border-radius: 0;
+    height: 2.3rem;
+    margin: .2rem 0 !important;
+    width: 85%;
+    height: 3rem !important;
+  }
+  .form_mobile > button {
+    width: 85% !important;
+    margin: 0 auto;
+    height: 3rem !important;
+  }
+  .form_mobile > p {
+    font-size: 1rem !important;
+  }
+  .step_gift_mobile > div > b {
+    font-size: 2.5rem !important;
+  }
+  .step_gift_mobile > div > p {
+    margin: 0.5rem 0;
+    font-size: 1rem !important;
+  }
+  .step_gift_mobile > div {
+    padding: 2rem 0 1.3rem 0 !important;
+  }
+  .mobile_fb_connect {
+    margin-top: 7rem;
+    height: 13rem;
+  }
+  #detail {
+    width: 70% !important;
+    padding: 1.5rem;
+  }
+  #detail > span {
+    font-size: 2rem;
+  }
+  #detail > div {
+    margin: 0.5rem 4rem !important;
+  }
+  #fb_share > div > div > span {
+    height: 4.5rem !important;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #fb_share {
+    padding: 0 1rem !important;
+  }
+  #btn_center {
+    position: absolute;
+    z-index: 2;
+    top: 1%;
+    width: 100%;
+  }
+  #home_btn,
+  #register_btn,
+  .btn_center {
+    width: 20% !important;
+  }
+}
+@media (max-width: 372px) {
+  .video {
+    height: 182px !important;
+  }
+  .slick-slider{
+    margin:0 !important;
+  }
+  .form_mobile > h3 {
+    font-size: 1.3rem !important;
+  }
+  .step_gift_mobile > div > p {
+    font-size: 0.6rem !important;
+  }
+  .mobile_fb_connect {
+    margin-top: 2rem !important;
+  }
+  #detail {
+    width: 70% !important;
+  }
+}
+@media (width: 414px) {
+  #background_video {
+    top: -15px !important;
+  }
+}
+@media (max-width: 768px) {
+  .ant-modal-body {
+    background: none;
+  }
+  .video-ipad {
+    height: 172px;
+  }
+  .form_dk_ipad {
+    font-size: 1.5rem !important;
+  }
+  .form_input_ipad > button {
+    font-size: 1rem !important;
+  }
+}
+@media (max-width: 736px) {
+  .video {
+    height: 390px ;
+  }
+}
+@media (min-width:567px){
+ .video{
+   height: 390px !important;
+ }
+}
+

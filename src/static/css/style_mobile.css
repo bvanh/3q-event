@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css?family=Bungee&display=swap");
+.frontend_mobile_container {
+  position: relative;
+}
+#background_mobile {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+}
+.background_mobile > img {
+  width: 100% !important  ;
+}
+.logo_mobile {
+    width: 55%;
+    margin: 3rem 1rem 2rem 1rem;
+}
+#background_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.video {
+  margin: 0 0 1.3rem 0;
+}
+.frontend_mobile_content {
+  position: relative;
+  z-index: 2;
+}
+.status_mobile{
+  height: .8rem;
+  margin-bottom: .3rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form_mobile {
+  background-image: url("/static/img/khungform.png");
+  background-position: center;
+  background-size: 100% 100%;
+}
+.form_mobile > h3 {
+  font-family: "Bungee", cursive;
+  /* background: linear-gradient(to right, red , yellow); */
+  font-size: 1.7rem;
+  background: linear-gradient(to bottom, #fef656, #ffdc4a, #ad780d),
+    linear-gradient(to top, #ffde1d, #ffde1d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0.5rem 0 0 0;
+}
+.form_mobile > input {
+  border-radius: 0;
+  height: 2.3rem;
+  margin: 0.2rem 0;
+}
+.form_mobile > button {
+  width: 100%;
+  border-radius: 0;
+  font-family: "Bungee", cursive;
+  font-size: 1.3rem;
+  background-color: #ff5a00;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.3rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  outline: none;
+}
+.form_mobile > p {
+  font-size: 0.8rem;
+  margin: 0;
+  color: #f7eb4c;
+}
+.ant-col {
+  text-align: center;
+  width: 95%;
+  margin: 0 auto;
+}
+.title {
+  width: 90%;
+  margin: 0 auto;
+}
+.form_mobile {
+  padding: 1rem;
+}
+#gift {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.step_gift_mobile {
+  padding: 0.5rem;
+}
+.step_gift_mobile > div > p {
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.step_gift_mobile > div {
+  font-family: "Bungee", cursive;
+  background-image: url("/static/img/frontend_mobile/frame_gift.png");
+  background-position: center;
+  background-size: 100% 100%;
+  color: #f7eb4c;
+  padding: 1rem 0 0.3rem 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.slick-prev:before,
+.slick-next:before {
+  content: none;
+}
+.step_gift_mobile > div > b {
+  font-size: 1.5rem;
+  color: #f7eb4c;
+}
+.slick-dots li button:before {
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 23px;
+  height: 8px;
+  content: "";
+  text-align: center;
+  opacity: 0.25;
+  color: #000;
+  background: #ffde1d;
+}
+.mobile_fb_connect {
+  display: flex;
+  background-image: url("/static/img/frontend_mobile/fb_connect_mobile.png");
+  background-position: center;
+  background-size: 100% 100%;
+  margin-top: 3rem;
+}
+#detail {
+  width: 50%;
+  font-family: "Bungee", cursive;
+  color: white;
+  padding: 0.7rem;
+}
+#detail > div {
+  border: 1px solid white;
+  margin: 0.5rem;
+  padding: 0.2rem;
+  font-size: 0.9rem;
+}
+#detail > div > img {
+  padding: 0 0.5rem !important;
+}
+#fb_share {
+  width: 50%;
+}
+#fb_share > div > div > span {
+  height: 2.5rem;
+  font-size: 1.2rem;
+}
+#btn_center {
+  position: absolute;
+  z-index: 2;
+  top:0;
+  width: 100%;
+}
+#home_btn,
+#register_btn,
+.btn_center {
+  width: 20% !important;
+}
+#bg_detail_mobile{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.slick-arrow{
+  display: none !important;
+}

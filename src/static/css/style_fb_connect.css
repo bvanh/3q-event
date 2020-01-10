@@ -1,0 +1,63 @@
+.fb_connect {
+  position: absolute;
+  height: 328px;
+  right: 0;
+  padding: 1rem 1rem 1rem 1.2rem;
+  /* border:3px solid #ffde1d; */
+  top: 200px;
+  background-image: url("/static/img/frame_tab_fb.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.fb_connect > p {
+  font-family: "Bungee", cursive;
+  font-size: 1.3rem;
+  color: #ffde1d;
+  margin: 0.3rem 0;
+}
+.fb_connect > span {
+  font-family: "Bungee", cursive;
+  font-size: 0.7rem;
+  color: white;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+}
+.fb_connect > span > img {
+  padding-right: 0.3rem;
+}
+.demo {
+  background-color: black;
+}
+.fb_connect_btn {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #3d66ff;
+  color: white;
+}
+.share-button > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+#like_btn {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 0.2rem;
+}
+#share_btn > img {
+  height: 20px;
+  /* margin-left:.1rem; */
+}
+#share_btn {
+  padding: 0.2rem;
+  display: flex;
+  background-color: #3d66ff;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  /* padding-left: .1rem; */
+}
