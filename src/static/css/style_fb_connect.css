@@ -5,7 +5,7 @@
   padding: 1rem 1rem 1rem 1.2rem;
   /* border:3px solid #ffde1d; */
   top: 200px;
-  background-image: url("/static/img/frame_tab_fb.png");
+  background-image: url("../img/frame_tab_fb.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -40,6 +40,7 @@
   flex-direction: column;
   padding: 0.5rem;
   cursor: pointer;
+  width: 100%;
 }
 #like_btn {
   background-color: white;
@@ -59,5 +60,9 @@
   align-items: center;
   justify-content: center;
   color: white;
+  width: 100% !important;
   /* padding-left: .1rem; */
+}
+.share-button{
+  width: 100%;
 }

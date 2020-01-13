@@ -1,45 +1,100 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { setProduct } from "../redux/actions/index";
 import submitEmail from "../utils/submitEmail";
-import getDataEmail from "../utils/getCurrentEmail";
-import FacebookConnect from "../components/subComponents/connectFacebook";
+import { FacebookConnect } from "../components/subComponents/connectFacebook";
+import { Button, Input, Progress } from "antd";
+import ShowModal from "../utils/modal";
+import {
+  showModal,
+  offModal,
+  getInfo,
+  setStatus
+} from "../redux/actions/index";
+import { images } from "../utils/exportImg";
 import "../static/css/style.css";
 import "../static/css/style_media.css";
 import "../static/css/style_fb_connect.css";
-function mapStateToProps(state) {
-  return {
-    products: state.data
-  };
-}
-function mapDispatchToProps(dispatch) {
-  return {
-    setProduct: product => dispatch(setProduct(product))
-  };
-}
 
 const FrontendDesktop = props => {
-  const addProduct = e => {
-    if (e.keyCode === 13) {
-      const product = e.target.value;
-      props.setProduct({
-        id: 4,
-        name: product,
-        price: 40000
-      });
-    }
+  const printProgress = props.dataEmail.map((val, index) => (
+    <Progress
+      strokeWidth={13}
+      key={index}
+      type="line"
+      percent={(val.current / val.max) * 100}
+      strokeColor="#ffde1d"
+      format={() => (
+        <div className="step_gift">
+          <p className="val_max">{val.max}</p>
+          {(val.current / val.max) * 100 === 100 ? (
+            <img src={images["step_finished.png"]} className="step_dot" />
+          ) : (
+            <img src={images["step_running.png"]} className="step_dot" />
+          )}
+          <img src={images["button_down.png"]} id="btn_down" />
+          {(val.current / val.max) * 100 === 100 ? (
+            <img
+              src={images["giftbox.png"]}
+              id="giftbox"
+              onClick={() =>
+                props.showModal([
+                  {
+                    title: "QUÀ ĐẠT",
+                    value: val.max,
+                    content: "LƯỢT ĐĂNG KÝ",
+                    gift: val.gifts,
+                    notice:
+                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
+                  }
+                ])
+              }
+            />
+          ) : (
+            <img
+              src={images["giftbox_running.png"]}
+              id="giftbox"
+              onClick={() =>
+                props.showModal([
+                  {
+                    title: "QUÀ ĐẠT",
+                    value: val.max,
+                    content: "LƯỢT ĐĂNG KÝ",
+                    gift: val.gifts,
+                    notice:
+                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
+                  }
+                ])
+              }
+            />
+          )}
+        </div>
+      )}
+    />
+  ));
+  const submitEmailAndPhoneNumber = (email, phoneNumber) => {
+    const result = submitEmail(email, phoneNumber);
+    result.then(mes => {
+      if (mes === 201) {
+        props.showModal([
+          {
+            title: "GỬI EMAIL NHẬN QUÀ THÀNH CÔNG!",
+            value: "",
+            content: "",
+            gift: [],
+            notice: ""
+          }
+        ]);
+      } else {
+        props.setStatus(mes);
+      }
+    });
   };
-
-  // const products = props.products.map(product => {
-  //   return <li key={product.id}>{product.name}</li>;
-  // });
-
   return (
     <div id="container_body">
       <div className="container">
-        <img src={"/static/img/background_header.png"} id="background_header" />
+        <img src={images["background_header.png"]} id="background_header" />
         <img
-          src="/static/img/background_body.png"
+          src={images["background_body.png"]}
           width="100%"
           id="img_background"
           height="100%"
@@ -58,7 +113,7 @@ const FrontendDesktop = props => {
           ></a>
         </div>
         <div id="logo">
-          <img src="/static/img/Logo.png" width="25%" />
+          <img src={images["Logo.png"]} width="25%" />
         </div>
         <div id="video_frame">
           <iframe
@@ -71,56 +126,66 @@ const FrontendDesktop = props => {
           />
         </div>
       </div>
-      {/* <div id="container_form">
-          <div className="form">
-            <p className="form_dk">ĐĂNG KÝ SỚM NHẬN QUÀ</p>
-            <div className="form_input">
-              <Input
-                placeholder="Nhập email để nhận quà"
-                onChange={getEmail}
-                onFocus={removeStatus}
+      <div id="container_form">
+        <div className="form">
+          <p className="form_dk">ĐĂNG KÝ SỚM NHẬN QUÀ</p>
+          <div className="form_input">
+            <Input
+              placeholder="Nhập email để nhận quà"
+              name="email"
+              onChange={e => props.getInfo(e)}
+              onFocus={() => props.setStatus("")}
+            />
+            <Input
+              placeholder="Nhập SĐT (không bắt buộc)"
+              name="phoneNumber"
+              onChange={e => props.getInfo(e)}
+              onFocus={() => props.setStatus("")}
+            />
+            <Button
+              type="primary"
+              onClick={() =>
+                submitEmailAndPhoneNumber(props.email, props.phoneNumber)
+              }
+            >
+              GỬI{" "}
+              <img
+                src={images["icon_btn_send.png"]}
+                height="60%"
+                style={{ paddingLeft: ".5rem" }}
               />
-              <Input
-                placeholder="Nhập SĐT (không bắt buộc)"
-                onChange={getPhoneNumber}
-                onFocus={removeStatus}
-              />
-              <Button
-                type="primary"
-                onClick={() => submitEmailAndPhoneNumber(email, phoneNumber)}
-              >
-                GỬI{" "}
-                <img
-                  src="/static/img/icon_btn_send.png"
-                  height="60%"
-                  style={{ paddingLeft: ".5rem" }}
-                />
-              </Button>
-            </div>
-            <p className="status">{statusSubmit}</p>
-            <p className="form_footer">
-              Hãy nhập email để nhận link download và giftcode sớm nhất nhé!
-            </p>
+            </Button>
           </div>
+          <p className="status">{props.statusSubmit}</p>
+          <p className="form_footer">
+            Hãy nhập email để nhận link download và giftcode sớm nhất nhé!
+          </p>
         </div>
-        <div id="container_progress">
-          <div className="progress">{printProgress}</div>
-        </div>
-        <FacebookConnect showModal={showModal} />
       </div>
-      <Modal visible={visible} onCancel={handleCancel} footer={null}>
-        <img src="static/img/detail_background.png" width="100%" />
-        <div id="modal">
-          <img src="/static/img/giftbox_running.png" />
-          <h3>
-            {stepValue.title} {stepValue.value} {stepValue.content}
-          </h3>
-          <table>{printGift}</table>
-          <p>{statusSuccess}</p>
-        </div>
-      </Modal> */}
+      <div id="container_progress">
+        <div className="progress">{printProgress}</div>
+      </div>
+      <FacebookConnect showModal={props.showModal} />
+      <ShowModal />
     </div>
   );
 };
-
+function mapStateToProps(state) {
+  return {
+    dataEmail: state.dataEmail,
+    visible: state.visible,
+    stepGift: state.stepGift[0],
+    email: state.email,
+    phoneNumber: state.phoneNumber,
+    statusSubmit: state.statusSubmit
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    showModal: db => dispatch(showModal(db)),
+    offModal: () => dispatch(offModal()),
+    getInfo: db => dispatch(getInfo(db)),
+    setStatus: val => dispatch(setStatus(val))
+  };
+}
 export default connect(mapStateToProps, mapDispatchToProps)(FrontendDesktop);

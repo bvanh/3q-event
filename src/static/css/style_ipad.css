@@ -1,5 +1,5 @@
 .frontend_ipad_container {
-  background-image: url("/static/img/frontend_ipad/background_ipad.jpg");
+  background-image: url("../img/frontend_ipad/background_ipad.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -40,7 +40,7 @@
   }
 .form_ipad { 
     width: 55% !important;
-    background-image: url("/static/img/khungform.png");
+    background-image: url("../img/khungform.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -107,7 +107,7 @@
   .progress {
     display: flex;
     top: 82%;
-    width: 65% !important;
+    width: 65% ;
   }
   .step_gift_ipad > button {
     width: 100%;

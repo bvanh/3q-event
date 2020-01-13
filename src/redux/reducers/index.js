@@ -1,30 +1,48 @@
-import { SET_PRODUCT } from "../action_types/index";
+import { actions } from "../action_types/index";
 const initialState = {
   dataEmail: [],
   visible: false,
   email: "",
   phoneNumber: "",
-  statusSuccess: "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước",
   statusSubmit: "",
   stepGift: [
     {
       title: "",
       value: 0,
       content: "",
-      gift: [{ id: 0, name: "", number: 0 }]
+      gift: [{ id: "", name: "", number: 0 }],
+      notice: ""
+    }
+  ],
+  isRunVideo: [
+    {
+      run: false,
+      show: "hidden",
+      showThumbnail: "block"
     }
   ]
 };
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_PRODUCT:
-      const newProducts = [...state.data];
-      newProducts.push(action.db);
+    case actions.GET_DATAEMAIL:
+      return { ...state, dataEmail: action.db };
+    case actions.SET_MODAL:
       return {
         ...state,
-        category: action.type,
-        data: newProducts
+        visible: true,
+        stepGift: action.db
       };
+    case actions.OFF_MODAL:
+      return { ...state, visible: false };
+    case actions.GET_INFO:
+      return {
+        ...state,
+        [action.db.target.name]: action.db.target.value
+      };
+    case actions.SET_STATUS:
+      return { ...state, statusSubmit: action.payload };
+    case actions.RUN_VIDEO:
+      return { ...state, isRunVideo: action.payload };
     default:
       return state;
   }

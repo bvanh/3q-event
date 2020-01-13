@@ -70,10 +70,11 @@ body {
   top: 60%;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 .form {
   width: 45% !important;
-  background-image: url("/static/img/khungform.png");
+  background-image: url("../img/khungform.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -168,6 +169,7 @@ h2 {
   position: absolute;
   top: 79%;
   justify-content: center;
+  width: 100%;
 }
 .progress_step {
   width: 25%;

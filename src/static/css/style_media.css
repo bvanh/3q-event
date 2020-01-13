@@ -233,7 +233,7 @@
   #detail > div {
     margin: 0.5rem 4rem !important;
   }
-  #fb_share > div > div > span {
+  #fb_share > button > div > span {
     height: 4.5rem !important;
     font-size: 1.2rem;
     display: flex;

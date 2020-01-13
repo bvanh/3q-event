@@ -36,7 +36,7 @@
   justify-content: center;
 }
 .form_mobile {
-  background-image: url("/static/img/khungform.png");
+  background-image: url("../img/khungform.png");
   background-position: center;
   background-size: 100% 100%;
 }
@@ -104,7 +104,7 @@
 }
 .step_gift_mobile > div {
   font-family: "Bungee", cursive;
-  background-image: url("/static/img/frontend_mobile/frame_gift.png");
+  background-image: url("../img/frontend_mobile/frame_gift.png");
   background-position: center;
   background-size: 100% 100%;
   color: #f7eb4c;
@@ -127,9 +127,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 23px;
-  height: 8px;
-  content: "";
+  width: 23px !important;
+  height: 8px !important;
+  content: "" !important;
   text-align: center;
   opacity: 0.25;
   color: #000;
@@ -137,7 +137,7 @@
 }
 .mobile_fb_connect {
   display: flex;
-  background-image: url("/static/img/frontend_mobile/fb_connect_mobile.png");
+  background-image: url("../img/frontend_mobile/fb_connect_mobile.png");
   background-position: center;
   background-size: 100% 100%;
   margin-top: 3rem;
@@ -160,9 +160,12 @@
 #fb_share {
   width: 50%;
 }
-#fb_share > div > div > span {
-  height: 2.5rem;
-  font-size: 1.2rem;
+#fb_share > button > div > span {
+  height: 2.5rem ;
+  font-size: 1.2rem ;
+  display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #btn_center {
   position: absolute;
