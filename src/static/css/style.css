@@ -226,11 +226,15 @@ h2 {
   left: -4px;
   width: 3rem;
   cursor: pointer;
+  z-index: 99999;
 }
 /* css modal */
 .ant-modal {
   width: 700px !important;
   height: 466px;
+}
+.wrapModal{
+  z-index: 0;
 }
 .ant-modal-content {
   background-color: rgba(255, 255, 255, 0) !important;
@@ -254,13 +258,18 @@ h2 {
   padding: 1rem;
   width: 100%;
 }
-#modal > p {
+#modal >div> p {
   width: 70%;
   margin: 0 auto;
   text-align: center;
   font-size: 0.7rem;
   margin-top: 0.3rem;
   color: #fede1d;
+}
+#modal>div{
+  overflow-y: scroll;
+  height: 200px;
+  margin-top: .5rem;
 }
 #modal > h3 {
   padding-top: 0.5rem;
@@ -270,6 +279,16 @@ h2 {
 table {
   width: 80%;
   margin: 0 auto;
+}
+table>p{
+  margin: 0;
+  margin-top: 9px !important;
+  margin-bottom: 1px;
+  float: left;
+  font-size: 0.8rem;
+  color: #fede1d;
+  width: 289%;
+  display: flex;
 }
 td > img {
   width: 20%;
@@ -282,4 +301,26 @@ td {
 .nameGift{
   text-align: left;
   padding-left: 1.2rem;
+
+}
+/* width */
+#modal>div::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px rgb(78, 78, 78);  */
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fede1d; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fede1d; 
 }

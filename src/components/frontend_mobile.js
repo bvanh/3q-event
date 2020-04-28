@@ -6,6 +6,7 @@ import { shareUrl } from "../components/subComponents/connectFacebook";
 import { Input, Modal, Col } from "antd";
 import ReactPlayer from "react-player";
 import Slider from "react-slick";
+import { giftShare, giftAllServer } from "../utils/giftAll";
 import {
   showModal,
   offModal,
@@ -27,7 +28,6 @@ const FrontendMobile = props => {
     statusSubmit,
     isRunVideo
   } = props;
-  const giftShare = [{ id: 300001, name: "Ruby", number: 75 }];
   const printStepGift = dataEmail.map((data, index) => (
     <div
       key={index}
@@ -39,8 +39,10 @@ const FrontendMobile = props => {
             value: data.max,
             content: "LƯỢT ĐĂNG KÝ",
             gift: data.gifts,
+            giftAllServer: giftAllServer[index],
             notice:
-              "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
+              "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
+            type: "Quà tặng đăng ký sớm"
           }
         ])
       }
@@ -64,8 +66,28 @@ const FrontendMobile = props => {
       </div>
     </div>
   ));
+  function printGiftAllServer() {
+    if (props.giftAllServer.id !== undefined) {
+      return (
+        <>
+          <p>*{props.giftAllServer.type}</p>
+          <tr>
+            <td>1</td>
+            <td>
+              <img src={imgGift[`${props.giftAllServer.id}.png`]} />
+            </td>
+            <td>{props.giftAllServer.name}</td>
+            <td>{props.giftAllServer.number.toLocaleString()}</td>
+          </tr>
+        </>
+      );
+    } else {
+      return null;
+    }
+  }
   const printGift = stepGift.gift.map((val, index) => (
     <tr key={index}>
+      <td>{val.step || index + 1}</td>
       <td>
         <img src={imgGift[`${val.id}.png`]} />
       </td>
@@ -88,10 +110,12 @@ const FrontendMobile = props => {
       if (mes === 201) {
         props.showModal([
           {
-            title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
+            title: "GỬI EMAIL NHẬN QUÀ THÀNH CÔNG!",
             value: "",
             content: "",
             gift: [],
+            giftAllServer: {},
+            type: "",
             notice: ""
           }
         ]);
@@ -147,13 +171,13 @@ const FrontendMobile = props => {
             <h3>Đăng ký sớm nhận quà</h3>
             <Input
               placeholder="Nhập email nhận quà"
-              name='email'
+              name="email"
               onChange={e => props.getInfo(e)}
               onFocus={() => props.setStatus("")}
             />
             <Input
               placeholder="Nhập SĐT (không bắt buộc)"
-              name='phoneNumber'
+              name="phoneNumber"
               onChange={e => props.getInfo(e)}
               onFocus={() => props.setStatus("")}
             />
@@ -188,7 +212,9 @@ const FrontendMobile = props => {
                         value: "",
                         content: "KHI CHIA SẺ",
                         gift: giftShare,
-                        notice: ""
+                        notice: "",
+                        giftAllServer: {},
+                        type: ""
                       }
                     ])
                   }
@@ -222,8 +248,14 @@ const FrontendMobile = props => {
             {props.stepGift.title} {props.stepGift.value + " "}
             {props.stepGift.content}
           </h3>
-          <table>{printGift}</table>
-          <p>{props.stepGift.notice}</p>
+          <div style={{ overflowY: "scroll" }}>
+            <table>
+              {printGiftAllServer()}
+              <p>{props.stepGift.type}</p>
+              {printGift}
+            </table>
+            <p>{props.stepGift.notice}</p>
+          </div>
         </div>
       </Modal>
     </div>
@@ -238,7 +270,8 @@ function mapStateToProps(state) {
     email: state.email,
     phoneNumber: state.phoneNumber,
     statusSubmit: state.statusSubmit,
-    isRunVideo: state.isRunVideo[0]
+    isRunVideo: state.isRunVideo[0],
+    giftAllServer: state.stepGift[0].giftAllServer
   };
 }
 function mapDispatchToProps(dispatch) {

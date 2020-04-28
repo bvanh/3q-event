@@ -4,6 +4,7 @@ import submitEmail from "../utils/submitEmail";
 import { FacebookConnect } from "../components/subComponents/connectFacebook";
 import { Button, Input, Progress } from "antd";
 import ShowModal from "../utils/modal";
+import { giftAllServer } from "../utils/giftAll";
 import {
   showModal,
   offModal,
@@ -29,13 +30,14 @@ const FrontendDesktop = props => {
           {(val.current / val.max) * 100 === 100 ? (
             <img src={images["step_finished.png"]} className="step_dot" />
           ) : (
-            <img src={images["step_running.png"]} className="step_dot" />
-          )}
+              <img src={images["step_running.png"]} className="step_dot" />
+            )}
           <img src={images["button_down.png"]} id="btn_down" />
           {(val.current / val.max) * 100 === 100 ? (
             <img
               src={images["giftbox.png"]}
               id="giftbox"
+              // onMouseOut={()=>props.offModal()}
               onMouseOver={() =>
                 props.showModal([
                   {
@@ -43,42 +45,36 @@ const FrontendDesktop = props => {
                     value: val.max,
                     content: "LƯỢT ĐĂNG KÝ",
                     gift: val.gifts,
+                    giftAllServer: giftAllServer[index],
                     notice:
-                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
+                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
+                    type: "*Quà tặng đăng ký sớm"
                   }
                 ])
-              } 
-              // onClick={() =>
-              //   props.showModal([
-              //     {
-              //       title: "QUÀ ĐẠT",
-              //       value: val.max,
-              //       content: "LƯỢT ĐĂNG KÝ",
-              //       gift: val.gifts,
-              //       notice:
-              //         "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
-              //     }
-              //   ])
-              // }
-            />
-          ) : (
-            <img
-              src={images["giftbox_running.png"]}
-              id="giftbox"
-              onClick={() =>
-                props.showModal([
-                  {
-                    title: "QUÀ ĐẠT",
-                    value: val.max,
-                    content: "LƯỢT ĐĂNG KÝ",
-                    gift: val.gifts,
-                    notice:
-                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
-                  }
-                ])
+               
               }
             />
-          )}
+          ) : (
+              <img
+                src={images["giftbox_running.png"]}
+                id="giftbox"
+                onMouseOut={()=>props.offModal()}
+                onMouseOver={() =>
+                  props.showModal([
+                    {
+                      title: "QUÀ ĐẠT",
+                      value: val.max,
+                      content: "LƯỢT ĐĂNG KÝ",
+                      gift: val.gifts,
+                      giftAllServer: giftAllServer[index],
+                      notice:
+                        "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
+                      type: "*Quà tặng đăng ký sớm"
+                    }
+                  ])
+                }
+              />
+            )}
         </div>
       )}
     />
@@ -89,11 +85,13 @@ const FrontendDesktop = props => {
       if (mes === 201) {
         props.showModal([
           {
-            title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
+            title: "GỬI EMAIL NHẬN QUÀ THÀNH CÔNG!",
             value: "",
             content: "",
             gift: [],
-            notice: ""
+            notice: "",
+            giftAllServer: {},
+            type: ""
           }
         ]);
       } else {

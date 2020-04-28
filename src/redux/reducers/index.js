@@ -11,7 +11,14 @@ const initialState = {
       value: 0,
       content: "",
       gift: [{ id: "", name: "", number: 0 }],
-      notice: ""
+      giftAllServer: {
+        id: "",
+        name: "",
+        number: 0,
+        type: ""
+      },
+      notice: "",
+      type: ""
     }
   ],
   isRunVideo: [

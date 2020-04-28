@@ -12,12 +12,13 @@ function App(props) {
     let newData = getDataEmail();
     newData.then(val => {
       props.getData(val.data.data);
+      console.log(val.data.data)
     });
   }, []);
   return (
     <>
       <MediaQuery minDeviceWidth={1025}>
-        <FrontendDesktop />;
+        <FrontendDesktop />
       </MediaQuery>
       <MediaQuery maxDeviceWidth={811}>
         <FrontendMobile />

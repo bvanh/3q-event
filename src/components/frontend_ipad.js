@@ -4,6 +4,7 @@ import submitEmail from "../utils/submitEmail";
 import { FacebookConnect } from "../components/subComponents/connectFacebook";
 import { Button, Input, Progress } from "antd";
 import ShowModal from "../utils/modal";
+import {giftAllServer} from "../utils/giftAll";
 import ReactPlayer from "react-player";
 import {
   showModal,
@@ -12,7 +13,7 @@ import {
   setStatus,
   runVideo
 } from "../redux/actions/index";
-import { images,imgMobile } from "../utils/exportImg";
+import { images, imgMobile } from "../utils/exportImg";
 import "../static/css/style_ipad.css";
 
 const FrontendIpad = props => {
@@ -43,8 +44,10 @@ const FrontendIpad = props => {
                     value: val.max,
                     content: "LƯỢT ĐĂNG KÝ",
                     gift: val.gifts,
+                    giftAllServer: giftAllServer[index],
                     notice:
-                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
+                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
+                    type: "*Quà tặng đăng ký sớm"
                   }
                 ])
               }
@@ -60,8 +63,10 @@ const FrontendIpad = props => {
                     value: val.max,
                     content: "LƯỢT ĐĂNG KÝ",
                     gift: val.gifts,
+                    giftAllServer: giftAllServer[index],
                     notice:
-                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
+                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
+                    type: "*Quà tặng đăng ký sớm"
                   }
                 ])
               }
@@ -77,11 +82,13 @@ const FrontendIpad = props => {
       if (mes === 201) {
         props.showModal([
           {
-            title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
+            title: "GỬI EMAIL NHẬN QUÀ THÀNH CÔNG!",
             value: "",
             content: "",
             gift: [],
-            notice: ""
+            notice: "",
+            giftAllServer: {},
+            type: ""
           }
         ]);
       } else {
@@ -151,11 +158,13 @@ const FrontendIpad = props => {
             />
             <Button
               type="primary"
-              onClick={() => submitEmailAndPhoneNumber(props.email,props.phoneNumber)}
+              onClick={() =>
+                submitEmailAndPhoneNumber(props.email, props.phoneNumber)
+              }
             >
               GỬI{" "}
               <img
-                src={images['icon_btn_send.png']}
+                src={images["icon_btn_send.png"]}
                 height="60%"
                 style={{ paddingLeft: ".5rem" }}
               />

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FacebookShareCount, FacebookShareButton } from "react-share";
 import { images } from "../../utils/exportImg";
-const shareUrl = "https://free.3qzombie.clappigames.com";
+const shareUrl = "https://pre.3qzombie.clappigames.com";
 function FacebookConnect(props) {
-  const giftShare = [{ id: 300001, name: "Ruby", number: 75 }];
+  const giftShare = [
+    { id: 300002, name: "Ruby", number: 25, step: "500 Lượt" },
+    { id: 300002, name: "Ruby", number: 75, step: "1000 Lượt" }
+  ];
   return (
     <div className="fb_connect">
       <p>SHARE MẠNH NGAY QUÀ LIỀN TAY</p>
@@ -15,13 +18,14 @@ function FacebookConnect(props) {
               value: "",
               content: "KHI CHIA SẺ",
               gift: giftShare,
-              notice:
-                "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
+              notice: "",
+              giftAllServer:{},
+              type:'',
             }
           ])
         }
       >
-        <img src={images["box_detail.png"]} className='gift-detail'/>
+        <img src={images["box_detail.png"]} />
         Chi tiết
       </span>
       <FacebookShareButton url={shareUrl} className="share-button">
