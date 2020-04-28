@@ -36,7 +36,7 @@ const FrontendDesktop = props => {
             <img
               src={images["giftbox.png"]}
               id="giftbox"
-              onClick={() =>
+              onMouseOver={() =>
                 props.showModal([
                   {
                     title: "QUÀ ĐẠT",
@@ -47,7 +47,19 @@ const FrontendDesktop = props => {
                       "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
                   }
                 ])
-              }
+              } 
+              // onClick={() =>
+              //   props.showModal([
+              //     {
+              //       title: "QUÀ ĐẠT",
+              //       value: val.max,
+              //       content: "LƯỢT ĐĂNG KÝ",
+              //       gift: val.gifts,
+              //       notice:
+              //         "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!"
+              //     }
+              //   ])
+              // }
             />
           ) : (
             <img
@@ -77,7 +89,7 @@ const FrontendDesktop = props => {
       if (mes === 201) {
         props.showModal([
           {
-            title: "GỬI EMAIL NHẬN QUÀ THÀNH CÔNG!",
+            title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
             value: "",
             content: "",
             gift: [],

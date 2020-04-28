@@ -2,7 +2,7 @@ import React from "react";
 import { Modal } from "antd";
 import { connect } from "react-redux";
 import { offModal } from "../redux/actions/index";
-import { imgGift,images } from "./exportImg";
+import { imgGift, images } from "./exportImg";
 const ShowModal = props => {
   const printGift = props.stepGift.gift.map((val, index) => (
     <tr key={index}>
@@ -18,7 +18,7 @@ const ShowModal = props => {
       <img src={images['detail_background.png']} width="100%" />
       <div id="modal">
         <img src={images['giftbox_running.png']} />
-        <h3>
+        <h3 className={props.stepGift.title === "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!" ? "alertEmail" : ""}>
           {props.stepGift.title} {props.stepGift.value + " "}
           {props.stepGift.content}
         </h3>

@@ -293,6 +293,15 @@
   .form_input_ipad > button {
     font-size: 1rem !important;
   }
+  #btn_center {
+    position: absolute;
+    z-index: 2;
+    top:0;
+    width: 100%;
+  }
+  .btn_center {
+    width: 20% !important;
+  }
 }
 @media (max-width: 736px) {
   .video {

@@ -77,7 +77,7 @@ const FrontendIpad = props => {
       if (mes === 201) {
         props.showModal([
           {
-            title: "GỬI EMAIL NHẬN QUÀ THÀNH CÔNG!",
+            title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
             value: "",
             content: "",
             gift: [],

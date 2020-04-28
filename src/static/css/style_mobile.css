@@ -167,16 +167,12 @@
     align-items: center;
     justify-content: center;
 }
-#btn_center {
-  position: absolute;
-  z-index: 2;
-  top:0;
-  width: 100%;
-}
 #home_btn,
-#register_btn,
+#register_btn{
+  width: 20%;
+}
 .btn_center {
-  width: 20% !important;
+  width: 15%;
 }
 #bg_detail_mobile{
   width: 100%;
