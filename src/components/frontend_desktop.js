@@ -37,7 +37,7 @@ const FrontendDesktop = props => {
             <img
               src={images["giftbox.png"]}
               id="giftbox"
-              // onMouseOut={()=>props.offModal()}
+              onMouseOut={()=>props.offModal()}
               onMouseOver={() =>
                 props.showModal([
                   {
@@ -85,7 +85,7 @@ const FrontendDesktop = props => {
       if (mes === 201) {
         props.showModal([
           {
-            title: "GỬI EMAIL NHẬN QUÀ THÀNH CÔNG!",
+            title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
             value: "",
             content: "",
             gift: [],

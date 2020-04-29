@@ -170,6 +170,7 @@ h2 {
   top: 79%;
   justify-content: center;
   width: 100%;
+  z-index: 2;
 }
 .progress_step {
   width: 25%;
@@ -230,11 +231,12 @@ h2 {
 }
 /* css modal */
 .ant-modal {
-  width: 700px !important;
+  width: 896px !important;
   height: 466px;
 }
 .wrapModal{
-  z-index: 0;
+  z-index: 1;
+  background: #080808b5;  
 }
 .ant-modal-content {
   background-color: rgba(255, 255, 255, 0) !important;
@@ -267,8 +269,8 @@ h2 {
   color: #fede1d;
 }
 #modal>div{
-  overflow-y: scroll;
-  height: 200px;
+  /* overflow-y: scroll;
+  height: 200px; */
   margin-top: .5rem;
 }
 #modal > h3 {

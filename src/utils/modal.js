@@ -35,11 +35,11 @@ const ShowModal = props => {
     }
   }
   return (
-    <Modal visible={props.visible} footer={null} mask={false} wrapClassName='wrapModal'>
+    <Modal visible={props.visible} onCancel={props.offModal} footer={null} mask={false} wrapClassName={props.stepGift.title === "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!" ? "alertEmailSuccess" : "wrapModal"}>
       <img src={images["detail_background.png"]} width="100%" />
       <div id="modal">
         <img src={images["giftbox_running.png"]} />
-        <h3>
+        <h3 className={props.stepGift.title === "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!" ? "alertEmail" : ""}>
           {stepGift.title} {stepGift.value + " "}
           {stepGift.content}
         </h3>

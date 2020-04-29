@@ -25,7 +25,7 @@ function FacebookConnect(props) {
           ])
         }
       >
-        <img src={images["box_detail.png"]} />
+        <img src={images["box_detail.png"]} className='gift-detail'/>
         Chi tiết
       </span>
       <FacebookShareButton url={shareUrl} className="share-button">
