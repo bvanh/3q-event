@@ -1,5 +1,5 @@
 const giftAllServer = [
-  { id: 300001, name: "Ruby", number: 20000, type: "Quà tặng all server" },
+  { id: 300001, name: "Vàng", number: 20000, type: "Quà tặng all server" },
   { id: 300002, name: "Ruby", number: 10, type: "Quà tặng all server" },
   { id: 300002, name: "Ruby", number: 20, type: "Quà tặng all server" },
   { id: 300002, name: "Ruby", number: 40, type: "Quà tặng all server" }
