@@ -226,13 +226,24 @@ const FrontendMobile = props => {
             <div id="fb_share">
               <FacebookShareButton url={shareUrl} className="share-button">
                 <div>
-                  <span id="like_btn">1.4k</span>
+                  <span id="like_btn">24</span>
                   <span id="share_btn">
                     <img src={images["fb_icon.png"]} />
                     Share
                   </span>
                 </div>
               </FacebookShareButton>
+                {/* <iframe
+          src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=box_count&size=large&appId=519235915412416&width=67&height=40"
+          // width="67"
+          // height="40"
+          style={{ margin: ".7rem 0 0 1rem", height: "60px" }}
+          scrolling="no"
+          frameborder="0"
+          allowTransparency="true"
+          allow="encrypted-media"
+          className='share-button'
+        ></iframe> */}
             </div>
           </div>
         </Col>
