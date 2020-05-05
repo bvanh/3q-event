@@ -1,7 +1,7 @@
 import { actions } from "../action_types/index";
 const initialState = {
   dataEmail: [],
-  visible: false,
+  visible: true,
   email: "",
   phoneNumber: "",
   statusSubmit: "",

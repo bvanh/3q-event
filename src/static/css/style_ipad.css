@@ -152,7 +152,12 @@
     width: 80% !important;
   }
   #modal {
-    top: 18rem;
+    top: 10rem;
+  }
+}
+@media screen and (max-width: 1375px) {
+  .ant-modal {
+    top:10px;
   }
 }
 @media screen and (max-width: 414px) {
