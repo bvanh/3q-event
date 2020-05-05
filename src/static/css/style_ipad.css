@@ -160,9 +160,19 @@
     top:10px;
   }
 }
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 414px)  and(min-width:376px) {
   #modal {
     top: 5rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  #modal {
+    top: 1rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  #bg_detail_mobile {
+    height: 31rem;
   }
 }
 @media screen and (max-width: 812px) and (min-width:796px) {
