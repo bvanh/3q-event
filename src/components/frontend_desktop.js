@@ -86,7 +86,7 @@ const FrontendDesktop = props => {
         props.showModal([
           {
             title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
-            value: "",
+            value: "Giftcode và link tải game sẽ gửi đến mail của bạn khi sự kiện kết thúc.",
             content: "",
             gift: [],
             notice: "",

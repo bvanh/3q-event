@@ -40,10 +40,11 @@ const ShowModal = props => {
       <div id="modal">
         <img src={images["giftbox_running.png"]} />
         <h3 className={props.stepGift.title === "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!" ? "alertEmail" : ""}>
-          {stepGift.title} {stepGift.value + " "}
+          {stepGift.title} {stepGift.value === "Giftcode và link tải game sẽ gửi đến mail của bạn khi sự kiện kết thúc." ? "" : stepGift.value + " "}
           {stepGift.content}
         </h3>
-        <div style={{overflowY:'scroll'}}>
+        <p style={{color:"#fede1d"}}>{stepGift.value === "Giftcode và link tải game sẽ gửi đến mail của bạn khi sự kiện kết thúc." ? stepGift.value : ""}</p>
+        <div style={{ overflowY: 'scroll' }}>
           <table>
             {printGiftAllServer()}
             <p>{stepGift.type}</p>

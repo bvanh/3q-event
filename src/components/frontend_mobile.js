@@ -111,7 +111,7 @@ const FrontendMobile = props => {
         props.showModal([
           {
             title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
-            value: "",
+            value: "Giftcode và link tải game sẽ gửi đến mail của bạn khi sự kiện kết thúc.",
             content: "",
             gift: [],
             giftAllServer: {},
@@ -233,7 +233,7 @@ const FrontendMobile = props => {
                   </span>
                 </div>
               </FacebookShareButton>
-                {/* <iframe
+              {/* <iframe
           src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=box_count&size=large&appId=519235915412416&width=67&height=40"
           // width="67"
           // height="40"
@@ -256,9 +256,10 @@ const FrontendMobile = props => {
         <div id="modal">
           <img src={images["giftbox_running.png"]} />
           <h3>
-            {props.stepGift.title} {props.stepGift.value + " "}
+            {props.stepGift.title} {props.stepGift.value === "Giftcode và link tải game sẽ gửi đến mail của bạn khi sự kiện kết thúc." ? "" : props.stepGift.value + " "}
             {props.stepGift.content}
           </h3>
+          <p style={{color:"#fede1d"}}>{props.stepGift.value === "Giftcode và link tải game sẽ gửi đến mail của bạn khi sự kiện kết thúc." ? props.stepGift.value : ""}</p>
           <div style={{ overflowY: "scroll" }}>
             <table>
               {printGiftAllServer()}
