@@ -16,7 +16,7 @@ function submitEmail(mailValue, phoneNumber) {
     .post(API.API_POST_EMAIL, QS.stringify(requestBody), config)
     .then(result => {
       if (result.status === 201) {
-        window.fbq('track', 'CompleteRegistration', { 'content_name': mailValue })
+        window.fbq('track', 'CompleteRegistration', { content_name: mailValue })
         return 201;
       }
     })
