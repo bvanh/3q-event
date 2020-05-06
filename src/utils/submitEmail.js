@@ -15,6 +15,7 @@ function submitEmail(mailValue, phoneNumber) {
   const mes = axios
     .post(API.API_POST_EMAIL, QS.stringify(requestBody), config)
     .then(result => {
+      window.fbq('track', 'CompleteRegistration')
       if (result.status === 201) {
         return 201;
       }
