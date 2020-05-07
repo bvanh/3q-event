@@ -3,7 +3,7 @@ import { FacebookShareCount, FacebookShareButton } from "react-share";
 import { FacebookButton, FacebookCount } from "react-social";
 import { images } from "../../utils/exportImg";
 const shareUrl =
-  "https://www.facebook.com/3QZVN/photos/a.238821644206415/238156014272978/?type=3&theater";
+  "https://www.facebook.com/watch/?v=1571197656379891";
 function FacebookConnect(props) {
   const giftShare = [
     { id: 300002, name: "Ruby", number: 25, step: "500 Lượt" },
