@@ -9,14 +9,14 @@ import {
   showModal,
   offModal,
   getInfo,
-  setStatus
+  setStatus,
 } from "../redux/actions/index";
 import { images } from "../utils/exportImg";
 import "../static/css/style.css";
 import "../static/css/style_media.css";
 import "../static/css/style_fb_connect.css";
 
-const FrontendDesktop = props => {
+const FrontendDesktop = (props) => {
   const printProgress = props.dataEmail.map((val, index) => (
     <Progress
       strokeWidth={13}
@@ -30,14 +30,14 @@ const FrontendDesktop = props => {
           {(val.current / val.max) * 100 === 100 ? (
             <img src={images["step_finished.png"]} className="step_dot" />
           ) : (
-              <img src={images["step_running.png"]} className="step_dot" />
-            )}
+            <img src={images["step_running.png"]} className="step_dot" />
+          )}
           <img src={images["button_down.png"]} id="btn_down" />
           {(val.current / val.max) * 100 === 100 ? (
             <img
               src={images["giftbox.png"]}
               id="giftbox"
-              onMouseOut={()=>props.offModal()}
+              onMouseOut={() => props.offModal()}
               onMouseOver={() =>
                 props.showModal([
                   {
@@ -48,51 +48,51 @@ const FrontendDesktop = props => {
                     giftAllServer: giftAllServer[index],
                     notice:
                       "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
-                    type: "*Quà tặng đăng ký sớm"
-                  }
+                    type: "*Quà tặng đăng ký sớm",
+                  },
                 ])
-               
               }
             />
           ) : (
-              <img
-                src={images["giftbox_running.png"]}
-                id="giftbox"
-                onMouseOut={()=>props.offModal()}
-                onMouseOver={() =>
-                  props.showModal([
-                    {
-                      title: "QUÀ ĐẠT",
-                      value: val.max,
-                      content: "LƯỢT ĐĂNG KÝ",
-                      gift: val.gifts,
-                      giftAllServer: giftAllServer[index],
-                      notice:
-                        "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
-                      type: "*Quà tặng đăng ký sớm"
-                    }
-                  ])
-                }
-              />
-            )}
+            <img
+              src={images["giftbox_running.png"]}
+              id="giftbox"
+              onMouseOut={() => props.offModal()}
+              onMouseOver={() =>
+                props.showModal([
+                  {
+                    title: "QUÀ ĐẠT",
+                    value: val.max,
+                    content: "LƯỢT ĐĂNG KÝ",
+                    gift: val.gifts,
+                    giftAllServer: giftAllServer[index],
+                    notice:
+                      "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
+                    type: "*Quà tặng đăng ký sớm",
+                  },
+                ])
+              }
+            />
+          )}
         </div>
       )}
     />
   ));
   const submitEmailAndPhoneNumber = (email, phoneNumber) => {
     const result = submitEmail(email, phoneNumber);
-    result.then(mes => {
+    result.then((mes) => {
       if (mes === 201) {
         props.showModal([
           {
             title: "ĐĂNG KÝ NHẬN QUÀ THÀNH CÔNG!",
-            value: "Giftcode và link tải game sẽ gửi đến mail của bạn khi sự kiện kết thúc.",
+            value:
+              "Giftcode và link tải game sẽ gửi đến mail của bạn khi sự kiện kết thúc.",
             content: "",
             gift: [],
             notice: "",
             giftAllServer: {},
-            type: ""
-          }
+            type: "",
+          },
         ]);
       } else {
         props.setStatus(mes);
@@ -103,13 +103,29 @@ const FrontendDesktop = props => {
     <div id="container_body">
       <div className="container">
         <img src={images["background_header.png"]} id="background_header" />
-        <img
+        <div id="logo">
+          <img src={images["Logo.png"]} width="25%" />
+        </div>
+        <div id="video_frame">
+          <div style={{ width: "30%" }}>
+            <img src={images["khung_video.png"]} />
+            <iframe
+              src="https://www.youtube.com/embed/8Wo6IorDgKc?autoplay=1&playlist=8Wo6IorDgKc&loop=1&mute=1&modestbranding=0&autohide=0&controls=0"
+              frameBorder="0"
+              allow="autoplay; encrypted-media;"
+              allowFullScreen
+              height="100%"
+              width="100%"
+            />
+          </div>
+        </div>
+        {/*<img
           src={images["background_body.png"]}
           width="100%"
           id="img_background"
           height="100%"
-        />
-        <div id="btn_center">
+        /> */}
+        {/* <div id="btn_center">
           <a
             href="http://3qzombie.clappigames.com"
             id="home_btn"
@@ -134,7 +150,7 @@ const FrontendDesktop = props => {
             height="100%"
             width="29%"
           />
-        </div>
+        </div> */}
       </div>
       <div id="container_form">
         <div className="form">
@@ -143,13 +159,13 @@ const FrontendDesktop = props => {
             <Input
               placeholder="Nhập email để nhận quà"
               name="email"
-              onChange={e => props.getInfo(e)}
+              onChange={(e) => props.getInfo(e)}
               onFocus={() => props.setStatus("")}
             />
             <Input
               placeholder="Nhập SĐT (không bắt buộc)"
               name="phoneNumber"
-              onChange={e => props.getInfo(e)}
+              onChange={(e) => props.getInfo(e)}
               onFocus={() => props.setStatus("")}
             />
             <Button
@@ -187,15 +203,15 @@ function mapStateToProps(state) {
     stepGift: state.stepGift[0],
     email: state.email,
     phoneNumber: state.phoneNumber,
-    statusSubmit: state.statusSubmit
+    statusSubmit: state.statusSubmit,
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    showModal: db => dispatch(showModal(db)),
+    showModal: (db) => dispatch(showModal(db)),
     offModal: () => dispatch(offModal()),
-    getInfo: db => dispatch(getInfo(db)),
-    setStatus: val => dispatch(setStatus(val))
+    getInfo: (db) => dispatch(getInfo(db)),
+    setStatus: (val) => dispatch(setStatus(val)),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(FrontendDesktop);

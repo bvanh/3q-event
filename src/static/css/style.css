@@ -7,15 +7,35 @@ body {
   max-height: 1440px;
 }
 #container_body {
+  background-image: url("../img/background.png");
   position: relative;
   text-align: center;
   min-width: 768px;
+  /* height: 100vh; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #video_frame {
-  position: absolute;
+  position: relative;
   height: 28%;
   top: 30%;
-  z-index: -1;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+}
+#video_frame > div {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 30vh;
+}
+#video_frame > div > img {
+  width: 102%;
+  position: absolute;
+  height: 101%;
+  left: -1px;
+  top: -1px;
 }
 .container {
   position: relative;
@@ -30,14 +50,15 @@ body {
   top: 0;
 }
 #logo {
-  position: absolute;
+  position: relative;
   top: 50px;
+  z-index: 1;
 }
 #background_header {
   position: absolute;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 2;
 }
 #btn_center {
   position: absolute;
@@ -66,8 +87,9 @@ body {
   visibility: hidden;
 }
 #container_form {
-  position: absolute;
-  top: 60%;
+  /* position: absolute;
+  top: 60%; */
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -166,11 +188,13 @@ h2 {
 }
 #container_progress {
   display: flex;
-  position: absolute;
+  position: relative;
   top: 79%;
   justify-content: center;
   width: 100%;
   z-index: 2;
+  margin-top:3rem;
+  padding-bottom: 5rem;
 }
 .progress_step {
   width: 25%;
@@ -234,9 +258,9 @@ h2 {
   width: 896px !important;
   height: 466px;
 }
-.wrapModal{
+.wrapModal {
   z-index: 1;
-  background: #080808b5;  
+  background: #080808b5;
 }
 .ant-modal-content {
   background-color: rgba(255, 255, 255, 0) !important;
@@ -260,7 +284,7 @@ h2 {
   padding: 1rem;
   width: 100%;
 }
-#modal >div> p {
+#modal > div > p {
   width: 70%;
   margin: 0 auto;
   text-align: center;
@@ -268,10 +292,10 @@ h2 {
   margin-top: 0.3rem;
   color: #fede1d;
 }
-#modal>div{
+#modal > div {
   /* overflow-y: scroll;
   height: 200px; */
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 #modal > h3 {
   padding-top: 0.5rem;
@@ -282,7 +306,7 @@ table {
   width: 80%;
   margin: 0 auto;
 }
-table>p{
+table > p {
   margin: 0;
   margin-top: 9px !important;
   margin-bottom: 1px;
@@ -300,13 +324,12 @@ td {
   border: 1px solid #fede1d;
   color: #ffde1d;
 }
-.nameGift{
+.nameGift {
   text-align: left;
   padding-left: 1.2rem;
-
 }
 /* width */
-#modal>div::-webkit-scrollbar {
+#modal > div::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -315,14 +338,14 @@ td {
   /* box-shadow: inset 0 0 5px rgb(78, 78, 78);  */
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #fede1d; 
+  background: #fede1d;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #fede1d; 
+  background: #fede1d;
 }

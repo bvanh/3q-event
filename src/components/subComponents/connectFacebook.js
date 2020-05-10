@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FacebookShareCount, FacebookShareButton } from "react-share";
-import { FacebookButton, FacebookCount } from "react-social";
+// import { FacebookButton, FacebookCount } from "react-social";
 import { images } from "../../utils/exportImg";
 const shareUrl =
   "https://www.facebook.com/watch/?v=1571197656379891";
