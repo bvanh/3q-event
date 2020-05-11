@@ -37,8 +37,8 @@ const FrontendDesktop = props => {
             <img
               src={images["giftbox.png"]}
               id="giftbox"
-              onMouseOut={()=>props.offModal()}
-              onMouseOver={() =>
+              onClick={()=>props.offModal()}
+              onClick={() =>
                 props.showModal([
                   {
                     title: "QUÀ ĐẠT",
@@ -58,8 +58,8 @@ const FrontendDesktop = props => {
               <img
                 src={images["giftbox_running.png"]}
                 id="giftbox"
-                onMouseOut={()=>props.offModal()}
-                onMouseOver={() =>
+                onClick={()=>props.offModal()}
+                onClick={() =>
                   props.showModal([
                     {
                       title: "QUÀ ĐẠT",
