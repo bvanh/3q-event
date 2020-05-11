@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Bungee&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Roboto:900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:900&display=swap");
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
@@ -20,6 +20,9 @@ body {
 .container {
   position: relative;
   min-width: 768px;
+}
+.isResize{
+  height: 100vh;
 }
 #img_background_footer {
   position: absolute;
@@ -90,6 +93,20 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
+}
+.background_footer{
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .form_dk {
+    color: #ffdc4a;
+    background: none;
+  }
+  .ant-btn > img {
+    display: none;
+  }
 }
 .form_input {
   display: flex;
@@ -170,6 +187,12 @@ h2 {
   top: 79%;
   justify-content: center;
   width: 100%;
+  /* z-index: 2; */
+}
+.progressHeight {
+  z-index: 0;
+}
+.progressNotHeight {
   z-index: 2;
 }
 .progress_step {
@@ -234,9 +257,9 @@ h2 {
   width: 896px !important;
   height: 466px;
 }
-.wrapModal{
+.wrapModal {
   z-index: 1;
-  background: #080808b5;  
+  background: #080808b5;
 }
 .ant-modal-content {
   background-color: rgba(255, 255, 255, 0) !important;
@@ -260,7 +283,7 @@ h2 {
   padding: 1rem;
   width: 100%;
 }
-#modal >div> p {
+#modal > div > p {
   width: 70%;
   margin: 0 auto;
   text-align: center;
@@ -268,10 +291,11 @@ h2 {
   margin-top: 0.3rem;
   color: #fede1d;
 }
-#modal>div{
+#modal > div {
   /* overflow-y: scroll;
   height: 200px; */
-  margin-top: .5rem;
+  margin-top: 0.5rem;
+  overflow-y: visible !important;
 }
 #modal > h3 {
   padding-top: 0.5rem;
@@ -282,7 +306,7 @@ table {
   width: 80%;
   margin: 0 auto;
 }
-table>p{
+table > p {
   margin: 0;
   margin-top: 9px !important;
   margin-bottom: 1px;
@@ -300,13 +324,12 @@ td {
   border: 1px solid #fede1d;
   color: #ffde1d;
 }
-.nameGift{
+.nameGift {
   text-align: left;
   padding-left: 1.2rem;
-
 }
 /* width */
-#modal>div::-webkit-scrollbar {
+#modal > div::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -315,14 +338,14 @@ td {
   /* box-shadow: inset 0 0 5px rgb(78, 78, 78);  */
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #fede1d; 
+  background: #fede1d;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #fede1d; 
+  background: #fede1d;
 }
