@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { connect } from "react-redux";
 import submitEmail from "../utils/submitEmail";
 import { FacebookConnect } from "../components/subComponents/connectFacebook";
 import { Button, Input, Progress, Popover } from "antd";
 import ShowModal from "../utils/modal";
 import { giftAllServer } from "../utils/giftAll";
+import { useMediaQuery } from 'react-responsive';
 import {
   showModal,
   offModal,
@@ -22,6 +23,13 @@ const FrontendDesktop = props => {
       content
     </div>
   )
+  // useMemo(()=>{
+  //   console.log(window.innerHeight)
+  // },[window.innerHeight])
+  const isSmallHeight = useMediaQuery({ query: '(max-height:862px)' })
+  const windowHeight = window.innerHeight;
+  const windowWidth = window.innerWidth;
+  const isResize = (windowWidth / windowHeight);
   const printProgress = props.dataEmail.map((val, index) => (
     <Progress
       strokeWidth={13}
@@ -38,13 +46,30 @@ const FrontendDesktop = props => {
               <img src={images["step_running.png"]} className="step_dot" />
             )}
           <img src={images["button_down.png"]} id="btn_down" />
-          {(val.current / val.max) * 100 === 100 ? (
-            // <Popover content={contentHover} title="Title" trigger="hover">
-            <img
-              src={images["giftbox.png"]}
+          {isSmallHeight ? (val.current / val.max) * 100 === 100 ? <img
+            src={images["giftbox.png"]}
+            id="giftbox"
+            onClick={() => props.offModal()}
+            onClick={() =>
+              props.showModal([
+                {
+                  title: "QUÀ ĐẠT",
+                  value: val.max,
+                  content: "LƯỢT ĐĂNG KÝ",
+                  gift: val.gifts,
+                  giftAllServer: giftAllServer[index],
+                  notice:
+                    "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
+                  type: "*Quà tặng đăng ký sớm"
+                }
+              ])
+
+            }
+          /> : <img
+              src={images["giftbox_running.png"]}
               id="giftbox"
-              onMouseOut={() => props.offModal()}
-              onMouseOver={() =>
+              onClick={() => props.offModal()}
+              onClick={() =>
                 props.showModal([
                   {
                     title: "QUÀ ĐẠT",
@@ -57,13 +82,10 @@ const FrontendDesktop = props => {
                     type: "*Quà tặng đăng ký sớm"
                   }
                 ])
-
               }
-            />
-
-          ) : (
+            /> : (val.current / val.max) * 100 === 100 ? (
               <img
-                src={images["giftbox_running.png"]}
+                src={images["giftbox.png"]}
                 id="giftbox"
                 onMouseOut={() => props.offModal()}
                 onMouseOver={() =>
@@ -79,9 +101,30 @@ const FrontendDesktop = props => {
                       type: "*Quà tặng đăng ký sớm"
                     }
                   ])
+
                 }
               />
-            )}
+            ) : (
+                <img
+                  src={images["giftbox_running.png"]}
+                  id="giftbox"
+                  onMouseOut={() => props.offModal()}
+                  onMouseOver={() =>
+                    props.showModal([
+                      {
+                        title: "QUÀ ĐẠT",
+                        value: val.max,
+                        content: "LƯỢT ĐĂNG KÝ",
+                        gift: val.gifts,
+                        giftAllServer: giftAllServer[index],
+                        notice:
+                          "*Đăng ký đạt các mốc sau vẫn nhận đầy đủ quà các mốc trước!",
+                        type: "*Quà tặng đăng ký sớm"
+                      }
+                    ])
+                  }
+                />
+              )}
         </div>
       )}
     />
@@ -108,10 +151,10 @@ const FrontendDesktop = props => {
   };
   return (
     <div id="container_body">
-      <div className="container">
+      <div  className={isResize < 1.8 ? "container isResize" : "container"}>
         <img src={images["background_header.png"]} id="background_header" />
         <img
-          src={images["background_body.png"]}
+          src={images["background2.png"]}
           width="100%"
           id="img_background"
           height="100%"
@@ -142,6 +185,7 @@ const FrontendDesktop = props => {
             width="29%"
           />
         </div>
+        <img src={images["background_footer.png"]} className="background_footer" />
       </div>
       <div id="container_form">
         <div className="form">
@@ -179,11 +223,12 @@ const FrontendDesktop = props => {
           </p>
         </div>
       </div>
-      <div id="container_progress">
+      <div id="container_progress" className={isSmallHeight ? "progressHeight" : "progressNotHeight"}>
         <div className="progress">{printProgress}</div>
       </div>
       <FacebookConnect showModal={props.showModal} />
       <ShowModal />
+
     </div>
   );
 };

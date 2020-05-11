@@ -21,6 +21,9 @@ body {
   position: relative;
   min-width: 768px;
 }
+.isResize{
+  height: 100vh;
+}
 #img_background_footer {
   position: absolute;
   top: 0;
@@ -91,10 +94,18 @@ body {
   -webkit-text-fill-color: transparent;
   margin: 0;
 }
+.background_footer{
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .form_dk {
     color: #ffdc4a;
     background: none;
+  }
+  .ant-btn > img {
+    display: none;
   }
 }
 .form_input {
@@ -176,6 +187,12 @@ h2 {
   top: 79%;
   justify-content: center;
   width: 100%;
+  /* z-index: 2; */
+}
+.progressHeight {
+  z-index: 0;
+}
+.progressNotHeight {
   z-index: 2;
 }
 .progress_step {
