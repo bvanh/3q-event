@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import submitEmail from "../utils/submitEmail";
 import { FacebookConnect } from "../components/subComponents/connectFacebook";
-import { Button, Input, Progress } from "antd";
+import { Button, Input, Progress, Popover } from "antd";
 import ShowModal from "../utils/modal";
 import { giftAllServer } from "../utils/giftAll";
 import {
@@ -17,6 +17,11 @@ import "../static/css/style_media.css";
 import "../static/css/style_fb_connect.css";
 
 const FrontendDesktop = props => {
+  const contentHover = (
+    <div>
+      content
+    </div>
+  )
   const printProgress = props.dataEmail.map((val, index) => (
     <Progress
       strokeWidth={13}
@@ -34,11 +39,12 @@ const FrontendDesktop = props => {
             )}
           <img src={images["button_down.png"]} id="btn_down" />
           {(val.current / val.max) * 100 === 100 ? (
+            // <Popover content={contentHover} title="Title" trigger="hover">
             <img
               src={images["giftbox.png"]}
               id="giftbox"
-              onClick={()=>props.offModal()}
-              onClick={() =>
+              onMouseOut={() => props.offModal()}
+              onMouseOver={() =>
                 props.showModal([
                   {
                     title: "QUÀ ĐẠT",
@@ -51,15 +57,16 @@ const FrontendDesktop = props => {
                     type: "*Quà tặng đăng ký sớm"
                   }
                 ])
-               
+
               }
             />
+
           ) : (
               <img
                 src={images["giftbox_running.png"]}
                 id="giftbox"
-                onClick={()=>props.offModal()}
-                onClick={() =>
+                onMouseOut={() => props.offModal()}
+                onMouseOver={() =>
                   props.showModal([
                     {
                       title: "QUÀ ĐẠT",
