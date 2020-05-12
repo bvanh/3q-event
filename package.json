@@ -22,6 +22,7 @@
     "react-share": "^4.1.0",
     "react-slick": "^0.25.2",
     "react-social": "^1.10.0",
+    "react-use-window-size": "^1.0.1",
     "redux": "^4.0.5"
   },
   "scripts": {

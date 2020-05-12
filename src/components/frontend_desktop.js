@@ -6,6 +6,7 @@ import { Button, Input, Progress, Popover } from "antd";
 import ShowModal from "../utils/modal";
 import { giftAllServer } from "../utils/giftAll";
 import { useMediaQuery } from 'react-responsive';
+import useWindowSize from 'react-use-window-size';
 import {
   showModal,
   offModal,
@@ -23,13 +24,9 @@ const FrontendDesktop = props => {
       content
     </div>
   )
-  // useMemo(()=>{
-  //   console.log(window.innerHeight)
-  // },[window.innerHeight])
+  const { width, height } = useWindowSize();
   const isSmallHeight = useMediaQuery({ query: '(max-height:720px)' })
-  const windowHeight = window.innerHeight;
-  const windowWidth = window.innerWidth;
-  const isResize = (windowWidth / windowHeight);
+  const isResize = (width / height);
   console.log(isResize)
   const printProgress = props.dataEmail.map((val, index) => (
     <Progress
@@ -152,7 +149,7 @@ const FrontendDesktop = props => {
   };
   return (
     <div id="container_body">
-      <div  className={isResize < 1.8 ? "container isResize" : "container"}>
+      <div className={isResize < 1.8 ? "container isResize" : "container"}>
         <img src={images["background_header.png"]} id="background_header" />
         <img
           src={images["background2.png"]}
