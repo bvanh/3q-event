@@ -26,7 +26,7 @@ const FrontendDesktop = props => {
   // useMemo(()=>{
   //   console.log(window.innerHeight)
   // },[window.innerHeight])
-  const isSmallHeight = useMediaQuery({ query: '(max-height:862px)' })
+  const isSmallHeight = useMediaQuery({ query: '(max-height:720px)' })
   const windowHeight = window.innerHeight;
   const windowWidth = window.innerWidth;
   const isResize = (windowWidth / windowHeight);
