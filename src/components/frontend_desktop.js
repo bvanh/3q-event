@@ -175,7 +175,7 @@ const FrontendDesktop = props => {
         </div>
         <div id="video_frame">
           <iframe
-            src="https://www.youtube.com/embed/8Wo6IorDgKc?autoplay=1&playlist=8Wo6IorDgKc&loop=1&mute=1&modestbranding=0&autohide=0&controls=0"
+            src="https://www.youtube.com/embed/gfqQK0GR3go?autoplay=1&playlist=gfqQK0GR3go&loop=1&mute=1&modestbranding=0&autohide=0&controls=0"
             frameBorder="0"
             allow="autoplay; encrypted-media;"
             allowFullScreen

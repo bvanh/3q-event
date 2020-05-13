@@ -145,7 +145,7 @@ const FrontendMobile = props => {
         <Col>
           <div style={{ position: "relative" }}>
             <ReactPlayer
-              url="https://www.youtube.com/embed/8Wo6IorDgKc?controls=1"
+              url="https://www.youtube.com/embed/gfqQK0GR3go?controls=1"
               width="100%"
               height="192px"
               playing={isRunVideo.run}
