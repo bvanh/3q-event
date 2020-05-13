@@ -171,7 +171,7 @@ const FrontendDesktop = props => {
           ></a>
         </div>
         <div id="logo">
-          <img src={images["Logo.png"]} width="25%" />
+          <img src={images["Logo.png"]} width="20%" />
         </div>
         <div id="video_frame">
           <iframe
