@@ -159,7 +159,7 @@ const FrontendDesktop = props => {
         />
         <div id="btn_center">
           <a
-            href="http://3qzombie.clappigames.com"
+            href="http://3qphancong.lussom.vn"
             id="home_btn"
             target="_blank"
           ></a>
