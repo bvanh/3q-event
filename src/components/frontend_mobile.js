@@ -226,7 +226,7 @@ const FrontendMobile = props => {
             <div id="fb_share">
               <FacebookShareButton url={shareUrl} className="share-button">
                 <div>
-                  <span id="like_btn">157</span>
+                  <span id="like_btn">220</span>
                   <span id="share_btn">
                     <img src={images["fb_icon.png"]} />
                     Share
